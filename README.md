@@ -287,6 +287,7 @@ a number of read-only getters are available in order to access state information
 * `getFontSize()` - returns the current font size as a string (e.g., `"12px"`).
 * `getWordWrap()` - returns the current word wrap setting as a `Boolean` (i.e., enabled or disabled).
 * `getAllowJavaScript()` - returns the current allow javascript setting as a `Boolean` (i.e., enabled or disabled).
+* `getAllowHints()` - returns the current allow hints setting as a `Boolean` (i.e., enabled or disabled).
 * `getAutocomplete()` - returns the current autocomplete settings as a `Boolean` (i.e., enabled or disabled).
 * `getAutoCloseTags()` - returns the current close tags setting as an `Object` with three properties: `whenOpening` a boolean that determines whether opening tags are closed upon typing ">", `whenClosing` a boolean that determines whether closing tags are closed upon typing "/", and an array of tags `indentTags`, that when opened, has a blank line. These values default to, respectively: `true`, `true`, and an empty array.
 * `getTutorialExists()` - returns `true` or `false` depending on whether or not there is a tutorial in the project (i.e., if `tutorial.html` is present)
@@ -335,6 +336,8 @@ to be notified when the action completes:
 * `disableAutoUpdate([callback])` - turns off auto-update for the preview (manual reloads still work)
 * `enableJavaScript([callback])` - turns on JavaScript execution for the preview (default)
 * `disableJavaScript([callback])` - turns off JavaScript execution for the preview
+* `enableHints([callback])` - turns on hints/suggestions for the editor (default)
+* `disableHints([callback])` - turns off hints/suggestions for the editor
 * `enableInspector([callback])` - turns on the preview inspector (shows code for hovered/clicked element)
 * `disableInspector([callback])` - turns off the preview inspector (default)
 * `enableWordWrap([callback])` - turns on word wrap for the editor (default)

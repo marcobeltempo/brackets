@@ -314,6 +314,7 @@ define([
         self.getAutocomplete = function() { return _state.allowAutocomplete; };
         self.getAutoCloseTags = function() { return _state.autoCloseTags; };
         self.getAllowJavaScript = function() { return _state.allowJavaScript; };
+        self.getAllowHints = function() { return _state.allowHints; };
         self.getAllowWhiteSpace = function() { return _state.allowWhiteSpace; };
         self.getAutoUpdate = function() { return _state.autoUpdate; };
         self.getOpenSVGasXML = function() { return _state.openSVGasXML; };
@@ -407,6 +408,7 @@ define([
                     _state.wordWrap = data.wordWrap;
                     _state.autoCloseTags = data.autoCloseTags;
                     _state.allowJavaScript = data.allowJavaScript;
+                    _state.allowHints = data.allowHints;
                     _state.allowWhiteSpace = data.allowWhiteSpace;
                     _state.autocomplete = data.autocomplete;
                     _state.autoUpdate = data.autoUpdate;
@@ -452,6 +454,8 @@ define([
                         _state.openSVGasXML = data.openSVGasXML;
                     } else if (eventName === "allowJavaScriptChange") {
                         _state.allowJavaScript = data.allowJavaScript;
+                    } else if (eventName === "allowHintsChange"){
+                        _state.allowHints = data.allowHints;
                     } else if (eventName === "allowWhiteSpaceChange") {
                         _state.allowWhiteSpace = data.allowWhiteSpace;
                     } else if (eventName === "tutorialVisibilityChange") {
@@ -579,6 +583,7 @@ define([
                                     autoUpdate: _state.autoUpdate,
                                     openSVGasXML: _state.openSVGasXML,
                                     allowJavaScript: _state.allowJavaScript,
+                                    allowHints: _state.allowHints,
                                     allowWhiteSpace: _state.allowWhiteSpace,
                                     // Allow overriding the default name for project zip files
                                     zipFilenamePrefix: options.zipFilenamePrefix
@@ -1077,6 +1082,14 @@ define([
 
     BrambleProxy.prototype.disableJavaScript = function(callback) {
         this._executeRemoteCommand({commandCategory: "bramble", command: "BRAMBLE_DISABLE_SCRIPTS"}, callback);
+    };
+
+    BrambleProxy.prototype.enableHints = function(callback) {
+        this._executeRemoteCommand({commandCategory: "bramble", command: "BRAMBLE_ENABLE_HINTS"}, callback);
+    };
+
+    BrambleProxy.prototype.disableHints = function(callback) {
+        this._executeRemoteCommand({commandCategory: "bramble", command: "BRAMBLE_DISABLE_HINTS"}, callback);
     };
 
     BrambleProxy.prototype.enableWhiteSpace = function(callback) {
