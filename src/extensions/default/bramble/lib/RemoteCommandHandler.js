@@ -109,6 +109,14 @@ define(function (require, exports, module) {
             PreferencesManager.set("allowJavaScript", false);
             PostMessageTransport.reload();
             break;
+        case "BRAMBLE_ENABLE_HINTS":
+            PreferencesManager.set("allowHints", true);
+            PostMessageTransport.reload();
+            break;
+        case "BRAMBLE_DISABLE_HINTS":
+            PreferencesManager.set("allowHints", false);
+            PostMessageTransport.reload();
+            break;
         case "BRAMBLE_ENABLE_WHITESPACE":
             PreferencesManager.getExtensionPrefs("denniskehrig.ShowWhitespace").set("enabled", true);
             break;
